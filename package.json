@@ -1,0 +1,24 @@
+{
+  "name": "pokemonexpress",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahan1986/pokemonExpress.git"
+  },
+  "author": "Handrew",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ahan1986/pokemonExpress/issues"
+  },
+  "homepage": "https://github.com/ahan1986/pokemonExpress#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "nodemon": "^1.17.3"
+  }
+}
