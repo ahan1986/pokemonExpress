@@ -71,4 +71,23 @@ app.get("/api/characters/:ID", function (req, res) {
     }
 
     return res.json(false);
+});
+
+//Create New pokemon characters which takes in JSON input
+app.post('/api/characters', function(req, res) {
+    var newPokemon = req.body;
+
+    newPokemon.routeName = newPokemon.name.replace(/\s+/g, '').toLowerCase();
+
+    console.log(newPokemon);
+
+    characters.push(newPokemon);
+
+    res.json(newPokemon);
+});
+
+//Start the server to being listening
+
+app.listen(PORT, function() {
+    console.log("listening on PORT: " + PORT);
 })
