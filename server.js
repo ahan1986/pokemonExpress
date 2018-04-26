@@ -37,3 +37,23 @@ var characters = [
     }
 ];
 
+//Routes
+
+// creating basic routes that sends the user first to the AJAX page
+
+app.get("/", function(req, res) {
+    res.sendFile(path.join(__dirname, "view.html"));
+});
+
+app.get("/add", function(req, res) {
+    res.sendFile(path.join(__dirname, "add.html"));
+});
+
+app.get("/all", function( req, res ){
+    res.sendFile(path.join(__dirname, "all.html"));
+});
+
+//Displays all the characters
+app.get("/api/characters", function(req, res) {
+    return res.json(characters);
+});
