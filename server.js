@@ -42,7 +42,8 @@ var characters = [
 // creating basic routes that sends the user first to the AJAX page
 
 app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "view.html"));
+    // res.sendFile(path.join(__dirname, "view.html"));
+    res.send("hello");
 });
 
 app.get("/add", function(req, res) {
@@ -64,13 +65,18 @@ app.get("/api/characters/:ID", function (req, res) {
 
     console.log(chosen);
 
-    for(var i =0; i< characters.length; i++) {
-        if(chosen === characters[i].routeName) {
-            return res.json(characters[i]);
-        }
-    }
+    //method one
+    var typed = characters.find(c => c.routeName === chosen);
+        if(!typed) res.status(404).send("no can do playa");
+        res.send(typed);
+    //method two
+    // for(var i =0; i< characters.length; i++) {
+    //     if(chosen === characters[i].routeName) {
+    //         return res.json(characters[i]);
+    //     }
+    // }
 
-    return res.json(false);
+    // return res.json(false);
 });
 
 //Create New pokemon characters which takes in JSON input
