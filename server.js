@@ -57,3 +57,18 @@ app.get("/all", function( req, res ){
 app.get("/api/characters", function(req, res) {
     return res.json(characters);
 });
+
+//Displays a single character, or returns false
+app.get("/api/characters/:ID", function (req, res) {
+    var chosen = req.params.ID;
+
+    console.log(chosen);
+
+    for(var i =0; i< characters.length; i++) {
+        if(chosen === characters[i].routeName) {
+            return res.json(characters[i]);
+        }
+    }
+
+    return res.json(false);
+})
